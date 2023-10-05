@@ -29,7 +29,7 @@ function App() {
     addTodo,
     sincronizeTodos,
   } = useTodos();
-  
+
   return (
     <React.Fragment>
       <TodoHeader loading={loading}>
@@ -46,15 +46,16 @@ function App() {
       <TodoList
         error={error}
         loading={loading}
-        totalTodos={totalTodos}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
         searchText={searchValue}
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
         onEmptySearchResults={
-          (searchText) => <p>No hay resultados para {searchText}</p>
+          (searchText) => <p>No hay resultado para {searchText}</p>
         }
+
       >
         {todo => (
           <TodoItem
@@ -65,7 +66,10 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
+
       </TodoList>
+
+
 
       {!!openModal && (
         <Modal>
